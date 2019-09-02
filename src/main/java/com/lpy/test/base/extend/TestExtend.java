@@ -1,4 +1,4 @@
-package com.lpy.test.extend;
+package com.lpy.test.base.extend;
 
 import org.junit.Test;
 
@@ -45,5 +45,13 @@ public class TestExtend {
     public void test2() {
         Shape s = new OverridingShape();
         s.go(1);
+    }
+
+    @Test
+    public void test3() {
+        OverridingShape overridingShape = new OverridingShape();
+        overridingShape.setRadian(1);
+        Shape s = overridingShape;
+        System.out.println(s);
     }
 }

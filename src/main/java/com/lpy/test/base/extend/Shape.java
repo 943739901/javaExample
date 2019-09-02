@@ -1,6 +1,4 @@
-package com.lpy.test.extend;
-
-import java.util.Objects;
+package com.lpy.test.base.extend;
 
 /**
  *  重写（override)又名覆盖:
@@ -12,17 +10,23 @@ import java.util.Objects;
  *      1.可以在一个类中也可以在继承关系的类中；
  *      2.名相同；
  *      3.参数列表不同（个数，顺序，类型） 和方法的返回值类型无关。
- * ---------------------
+ *
+ *
+ * 在创建子类时，抽象类的构造方法也会执行
  *
  * @author lipengyu
  * @date 2019/8/13 17:35
  */
-class Shape {
+public abstract class Shape {
 
     private Shape wf;
 
-    protected Shape() {
-        wf = this;
+    public Shape() {
+        System.out.println("aaa");
+    }
+
+    public Shape(Shape wf) {
+        this.wf = wf;
     }
 
     private int length() {
@@ -53,15 +57,9 @@ class Shape {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Shape shape = (Shape) o;
-        return Objects.equals(wf, shape.wf);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(wf);
+    public String toString() {
+        return "Shape{" +
+                "wf=" + wf +
+                '}';
     }
 }

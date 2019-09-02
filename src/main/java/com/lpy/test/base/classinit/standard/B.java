@@ -1,4 +1,4 @@
-package com.lpy.test.classinit.standard;
+package com.lpy.test.base.classinit.standard;
 
 /**
  * 1、父类的静态成员和静态块

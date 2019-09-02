@@ -1,4 +1,4 @@
-package com.lpy.test.classinit.example2;
+package com.lpy.test.base.classinit.example2;
 
 /**
  * 输出0000时需要加载B类和A类，且A类中有a才会执行构造块和构造方法，后面都不执行是因为没有new 对象

@@ -1,4 +1,4 @@
-package com.lpy.test;
+package com.lpy.test.base;
 
 import org.junit.Test;
 

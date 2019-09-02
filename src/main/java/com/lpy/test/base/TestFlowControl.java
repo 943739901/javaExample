@@ -1,14 +1,14 @@
-package com.lpy.test;
+package com.lpy.test.base;
 
 import org.junit.Test;
 
 /**
- * switch 用法
+ * 流程控制
  *
  * @author lipengyu
  * @date 2019/8/13 14:26
  */
-public class TestSwitch {
+public class TestFlowControl {
 
     /**
      * 截止到jdk1.8 switch支持如下数据类型
@@ -32,5 +32,22 @@ public class TestSwitch {
             default:
                 System.out.println(4);
         }
+    }
+
+
+    /**
+     * assert 用法
+     */
+    @Test
+    public void test2() {
+        //断言1结果为true，则继续往下执行
+        assert true;
+        System.out.println("断言1没有问题，Go！");
+
+        System.out.println("\n-----------------\n");
+
+        //断言2结果为false,程序终止
+        assert false : "断言失败，此表达式的信息将会在抛出异常的时候输出！";
+        System.out.println("断言2没有问题，Go！");
     }
 }

@@ -1,4 +1,4 @@
-package com.lpy.test.classinit.example1;
+package com.lpy.test.base.classinit.example1;
 
 /**
  *
