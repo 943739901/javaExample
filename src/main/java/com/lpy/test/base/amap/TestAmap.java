@@ -1,4 +1,4 @@
-package com.lpy.test.base.AMAP;
+package com.lpy.test.base.amap;
 
 /**
  * @author lipengyu
