@@ -1,6 +1,7 @@
 package com.lpy.test.base.model;
 
 
+import com.lpy.test.base.DefaultTargetType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -12,7 +13,7 @@ import java.util.List;
  */
 @Data
 @AllArgsConstructor
-public class Person implements Comparable<Person> {
+public class Person extends DefaultTargetType<Person> implements Comparable<Person> {
 
     private String name;
     private Integer age;

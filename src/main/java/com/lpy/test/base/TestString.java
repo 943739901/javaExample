@@ -1,6 +1,12 @@
 package com.lpy.test.base;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * String , StringBuffer,  StringBuilder
@@ -62,6 +68,89 @@ public class TestString {
         Integer integer = 0;
         char c = (char) (integer + 65);
         System.out.println(instanceId + "-" + c);
+    }
+
+    /**
+     * 过滤字符串中的转义字符
+     */
+    @Test
+    public void test4() {
+        String str = "         胡永聪、     \n\t         胡永聪       ";
+        System.out.println(str);
+        System.out.println("-------------------");
+        System.out.println(StringUtils.removePattern(str, "\\s*|\t|\r|\n"));
+        System.out.println("-------------------");
+    }
+
+    /**
+     * list转string根据字符隔开
+     */
+    @Test
+    public void test5() {
+        List<String> cities = Arrays.asList("Milan", "London", "New York", "San Francisco");
+        String citiesCommaSeparated = String.join(",", cities);
+        System.out.println(citiesCommaSeparated);
+        String collect = cities.stream().collect(Collectors.joining("、", "[", "]"));
+        System.out.println(collect);
+    }
+
+    /**
+     * String转list根据字符隔开
+     */
+    @Test
+    public void test6() {
+        String cities = "Milan,London,New York,San Francisco";
+        List<String> cityList = Stream.of(cities.split(",")).collect(Collectors.toList());
+        cityList.forEach(System.out::println);
+    }
+
+    /**
+     * parseInt过滤字符串多余0
+     */
+    @Test
+    public void test7() {
+        String str = "00010";
+        System.out.println(Integer.parseInt(str));
+
+
+        String latestTaskNo = "00000";
+        System.out.println("DC" + String.format("%05d", Integer.parseInt(latestTaskNo) + 1));
+    }
+
+    @Test
+    public void test8() {
+        String str = "sc_clazz";
+        String replace = str.replace("_", "/");
+        System.out.println(replace);
+    }
+
+    @Test
+    public void test9() {
+        String s = "ST1115861394283286528";
+        System.out.println(s.startsWith("ST"));
+    }
+
+    /**
+     * 实际上各种文章上说flatmap把数据变扁平化 实际上就像下面这个例子
+     * 将单个字符串转化为Stream<String[]>，再转化为Stream<String>
+     *
+     *     [hello c++] [hello java] [hello python]
+     * ->   hello c++ hello java hello python
+     */
+    @Test
+    public void test10() {
+        // 将集合中的字符串中单词提取出来，不考虑特殊字符
+        List<String> words = Arrays.asList("hello c++", "hello java", "hello python");
+        List<String> result = words.stream()
+                // 将单词按照空格切合，返回Stream<String[]>类型的数据
+                .map(word -> word.split(" "))
+                // 将Stream<String[]>转换为Stream<String>
+                .flatMap(Arrays::stream)
+                // 去重
+                .distinct()
+                .collect(Collectors.toList());
+        System.out.println(result);
+
     }
 }
 

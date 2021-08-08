@@ -168,6 +168,13 @@ public class TestDataType {
         System.out.println(l);
     }
 
+    @Test
+    public void test5() {
+        String advInterval = String.valueOf(Double.valueOf(0.0000001));
+        String s = String.valueOf(Math.round(Double.parseDouble(advInterval) * 60));
+        System.out.println(s);
+    }
+
 
 
 

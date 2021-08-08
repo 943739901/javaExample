@@ -2,6 +2,9 @@ package com.lpy.test.base;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 装箱拆箱
  *
@@ -76,6 +79,17 @@ public class TestBoxing {
     public void test3() {
 //        不允许赋值为负
 //        Character i1 = -1;
+    }
+
+    @Test
+    public void test4() {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(0);
+
+        System.out.println(list.contains(0));
     }
 
 

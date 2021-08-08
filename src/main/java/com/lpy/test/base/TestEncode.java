@@ -2,7 +2,9 @@ package com.lpy.test.base;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.security.MessageDigest;
 
+import jdk.nashorn.internal.ir.ObjectNode;
 import org.junit.Test;
 
 public class TestEncode {
